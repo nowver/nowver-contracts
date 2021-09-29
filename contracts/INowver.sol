@@ -13,8 +13,9 @@ interface INowver {
     /// @dev TokenData ensures a token cannot be minted without being registered first
     ///     and cannot be minted more than TokenData.supply is configured to
     struct TokenData {
-        uint256 supply; //
+        uint256 supply;
         uint256 count;
+        uint256 price;
     }
 
     /// @notice mint creates a new token of type _id, reverts if all occurences of the token are already minted
@@ -27,7 +28,12 @@ interface INowver {
     /// @dev _id should not already be registered, _supply must be greater than 0
     /// @param _id uint256 id of the token to register, should be incremental
     /// @param _supply uint256 max circulating supply
-    function registerToken(uint256 _id, uint256 _supply) external;
+    /// @param _price uint256 price of the token
+    function registerToken(
+        uint256 _id,
+        uint256 _supply,
+        uint256 _price
+    ) external;
 
     /// @notice exists verifies a token of type _id is registered
     /// @param _id uint256 id of the token to verify
