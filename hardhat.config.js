@@ -25,7 +25,7 @@ task('set-uri', "Updated the contract's metadata URI to the provided URI")
     );
 
     const tx = await nowver.setUri(uri).then((tx) => tx.wait());
-    console.log(`tx sent: ${tx.txHash}`);
+    console.log(`tx sent: ${tx.transactionHash}`);
   });
 
 task('uri', "Updated the contract's metadata URI to the provided URI")
@@ -60,7 +60,7 @@ task('register', 'Registers a new token with a limited supply')
     const tx = await nowver
       .registerToken(id, supply, price)
       .then((tx) => tx.wait());
-    console.log(`tx sent: ${tx.hash}`);
+    console.log(`tx sent: ${tx.transactionHash}`);
   });
 
 task('mint', 'Mints a new token for a given token type')
